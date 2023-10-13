@@ -2,57 +2,52 @@ import logo from "./mark.jpg";
 import "./App.css";
 import  React, {useState} from 'react';
 
-function App() {
+const App = () => {
   const [isiCircle, setIsiCircle] = useState(true);
 
-  const toggleShape  = () => {setIsiCircle(!isiCircle);
+  const toggleShape = () => {
+    setIsiCircle(!isiCircle);
   };
 
+  const imageClassName = isiCircle ? 'circle' : 'square';
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className="fotopalingatas">
-          <img src={logo} className={isiCircle? 'circle': 'square' } alt="logo" />
-          <div className="tulisandibawahfoto">
-            <ul>
-              <li>Gender: Male</li>
-              <li>Carer: Mahasiswa</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="tulisandisampingfoto">
-          <div>
-            <h2>Rino Gabriel Pandelaki</h2>
-            <hr></hr>
-          </div>
-          <div className="tulisandibawahgaris">
-            <ul>
-              <li>Angkatan : 2022</li>
-              <li>Major : Informatics</li>
-              <li>Jalur Sukses : Startup</li>
-              <li>Hobby : Gaming</li>
-            </ul>
-          </div>
-        </div>
-      </header>
-
-      <div className="right-bottom">
-        <button className='button' onClick={toggleShape}>Ubah</button>
-      </div>
-
-      <div className="deskripsi">
-        <hr></hr>
-        <p>Riwayat Organisasi : </p>
-        <ul>
-         <li> Ga ada</li>
-
-        </ul>
-        </div>
-
-    </div>
+  return React.createElement('div', { className: 'App' },
+          React.createElement('header', { className: 'App-header' },
+          React.createElement( 'div', { className: 'fotopalingatas' },
+          React.createElement('img', {src: logo, className: imageClassName, alt: 'logo', }),
+          React.createElement('div', { className: 'tulisandibawahfoto' },
+          React.createElement('ul', null,
+          React.createElement('li', null, 'Gender: Male'),
+          React.createElement('li', null, 'Carer: Mahasiswa')
+          )
+        )
+      ),
+      React.createElement( 'div', { className: 'tulisandisampingfoto' },
+      React.createElement( 'div', null,
+      React.createElement('h2', null, 'Rino Gabriel Pandelaki'),
+      React.createElement('hr', null)
+     ),
+      React.createElement('div',{ className: 'tulisandibawahgaris' },
+      React.createElement( 'ul', null,
+      React.createElement('li', null, 'Angkatan: 2022'),
+      React.createElement('li', null, 'Major: Informatics'),
+      React.createElement('li', null, 'Jalur Sukses: Startup'),
+      React.createElement('li', null, 'Hobby: Gaming')
+          )
+        )
+      )
+    ),
+    React.createElement('div',{ className: 'right-bottom' },
+    React.createElement('button', { className: 'button', onClick: toggleShape }, 'Ubah')
+    ),
+    React.createElement( 'div', { className: 'deskripsi' },
+    React.createElement('hr', null),
+    React.createElement('p', null, 'Riwayat Organisasi :'),
+    React.createElement('ul', null,
+    React.createElement('li', null, 'Ga ada')
+      )
+    )
   );
-}
+};
 
 export default App;
