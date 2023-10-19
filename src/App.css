@@ -81,6 +81,29 @@
   margin: 20px;
 }
 
+.accordion {
+  border: 1px solid #ddd;
+  margin: 10px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.open {
+  max-height: 200px; 
+}
+
+.accordion-header {
+  background-color: #26a6dc;
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.accordion-content {
+  padding: 10px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

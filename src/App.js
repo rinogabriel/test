@@ -1,52 +1,76 @@
+import React, { useState } from "react";
+import Accordion from "./Accordion";
 import logo from "./mark.jpg";
 import "./App.css";
-import  React, {useState} from 'react';
 
 const App = () => {
   const [isiCircle, setIsiCircle] = useState(true);
+  const [isiGambar, setGambar] = useState(true);
 
   const toggleShape = () => {
     setIsiCircle(!isiCircle);
   };
 
-  const imageClassName = isiCircle ? 'circle' : 'square';
+  const toggleGambar = () => {
+    setGambar(!isiGambar);
+  };
 
-  return React.createElement('div', { className: 'App' },
-          React.createElement('header', { className: 'App-header' },
-          React.createElement( 'div', { className: 'fotopalingatas' },
-          React.createElement('img', {src: logo, className: imageClassName, alt: 'logo', }),
-          React.createElement('div', { className: 'tulisandibawahfoto' },
-          React.createElement('ul', null,
-          React.createElement('li', null, 'Gender: Male'),
-          React.createElement('li', null, 'Carer: Mahasiswa')
-          )
-        )
-      ),
-      React.createElement( 'div', { className: 'tulisandisampingfoto' },
-      React.createElement( 'div', null,
-      React.createElement('h2', null, 'Rino Gabriel Pandelaki'),
-      React.createElement('hr', null)
-     ),
-      React.createElement('div',{ className: 'tulisandibawahgaris' },
-      React.createElement( 'ul', null,
-      React.createElement('li', null, 'Angkatan: 2022'),
-      React.createElement('li', null, 'Major: Informatics'),
-      React.createElement('li', null, 'Jalur Sukses: Startup'),
-      React.createElement('li', null, 'Hobby: Gaming')
-          )
-        )
-      )
-    ),
-    React.createElement('div',{ className: 'right-bottom' },
-    React.createElement('button', { className: 'button', onClick: toggleShape }, 'Ubah')
-    ),
-    React.createElement( 'div', { className: 'deskripsi' },
-    React.createElement('hr', null),
-    React.createElement('p', null, 'Riwayat Organisasi :'),
-    React.createElement('ul', null,
-    React.createElement('li', null, 'Ga ada')
-      )
-    )
+  const imageClassName = isiCircle ? "circle" : "square";
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <div className="fotopalingatas">
+          <img
+            src={isiGambar ? logo : ""}
+            className={imageClassName}
+            alt="logo"
+          />
+          <div className="tulisandibawahfoto">
+            <ul>
+              <button className="button" onClick={toggleGambar}>
+                Ubah
+              </button>
+              <li>Gender: Male</li>
+              <li>Carer: Mahasiswa</li>
+            </ul>
+          </div>
+        </div>
+        <div className="tulisandisampingfoto">
+          <div>
+            <h2>Rino Gabriel Pandelaki</h2>
+            <hr />
+            <div>
+              <Accordion
+                title="Angkatan"
+                content="2022"
+              />
+               <Accordion
+                title="Jurusan"
+                content="Informatika"
+              />
+              <Accordion
+                title="Hobby"
+                content="Tidur"
+              />
+              <Accordion
+               title="Jalur Sukses"
+               content="Start Up"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+      <div className="right-bottom">
+        <div className="deskripsi">
+          <hr />
+          <p>Riwayat Organisasi :</p>
+          <ul>
+            <li>Nplc</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 
